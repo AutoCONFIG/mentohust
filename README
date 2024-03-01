@@ -16,17 +16,17 @@
 
 ####如果不确定xrgsu的可用性
 请切换到32位版Windows锐捷所在目录，然后输入以下命令：
-sudo mkdir /etc/mentohust
-sudo cp ./8021x.exe  /etc/mentohust
-sudo cp ./W32N55.dll /etc/mentohust
+sudo mkdir /etc/storage/mentohust
+sudo cp ./8021x.exe  /etc/storage/mentohust
+sudo cp ./W32N55.dll /etc/storage/mentohust
 然后打开终端输入sudo mentohust运行。如果认证失败，再切换到Windows版锐捷所在目录，输入以下命令：
-sudo cp ./SuConfig.dat /etc/mentohust
+sudo cp ./SuConfig.dat /etc/storage/mentohust
 然后打开终端输入`sudo mentohust`运行即可。
 如果按以上步骤操作后还是认证失败，请下载MentoHUSTTool，在Windows下抓包并保存为data.mpf，
 然后回到Linux，切换到data.mpf所在目录，输入以下命令：
-sudo cp ./data.mpf /etc/mentohust
+sudo cp ./data.mpf /etc/storage/mentohust
 然后打开终端输入
-sudo mentohust -f/etc/mentohust/data.mpf -w
+sudo mentohust -f/etc/storage/mentohust/data.mpf -w
 运行即可。以后也只需输入sudo mentohust。
 
 ####您也可以按下面的方法操作
