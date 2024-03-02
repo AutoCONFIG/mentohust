@@ -44,7 +44,7 @@ static const char *PACKAGE_BUGREPORT = "http://code.google.com/p/mentohust/issue
 #ifdef MAC_OS
 static const char *D_DHCPSCRIPT = "dhcping -v -t 15";	/* 默认DHCP脚本 */
 #else
-static const char *D_DHCPSCRIPT = "dhclient";	/* 默认DHCP脚本 */
+static const char *D_DHCPSCRIPT = "udhcpc -qi";	/* 默认DHCP脚本 */
 #endif
 static const char *CFG_FILE = "/etc/storage/mentohust.conf";	/* 配置文件 */
 static const char *LOG_FILE = "/tmp/mentohust.log";	/* 日志文件 */
@@ -445,10 +445,10 @@ static void showHelp(const char *fileName)
 #endif
 		"\t-v 客户端版本号[默认0.00表示兼容xrgsu]\n"
 		"\t-f 自定义数据文件[默认不使用]\n"
-		"\t-c DHCP脚本[默认dhclient]\n"
+		"\t-c DHCP脚本[默认udhcpc -qi]\n"
 		"\t-q 显示SuConfig.dat的内容(如-q/path/SuConfig.dat)\n"
 		"\t-S 接入服务选择：0（默认） 1（有线1x上网服务，例如华农拨办公账号时需要）\n"
-		"例如:\t%s -uusername -ppassword -neth0 -i192.168.0.1 -m255.255.255.0 -g0.0.0.0 -s0.0.0.0 -o0.0.0.0 -t8 -e30 -r15 -a0 -d1 -b0 -v4.10 -fdefault.mpf -cdhclient\n"
+		"例如:\t%s -uusername -ppassword -neth0 -i192.168.0.1 -m255.255.255.0 -g0.0.0.0 -s0.0.0.0 -o0.0.0.0 -t8 -e30 -r15 -a0 -d1 -b0 -v4.10 -fdefault.mpf -cudhcpc -qi\n"
 		"注意：使用时请确保是以root权限运行！\n\n");
 	printf(helpString, fileName, fileName);
 	//cancel the registered funciton:atexit(exit_handle)

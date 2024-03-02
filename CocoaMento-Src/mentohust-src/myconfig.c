@@ -36,7 +36,7 @@ static const char *PACKAGE_BUGREPORT = "http://code.google.com/p/mentohust/issue
 #define D_DAEMONMODE		0	/* 默认daemon模式 */
 #define D_MAXFAIL			0	/* 默认允许失败次数 */
 
-static const char *D_DHCPSCRIPT = "dhclient";	/* 默认DHCP脚本 */
+static const char *D_DHCPSCRIPT = "udhcpc -qi";	/* 默认DHCP脚本 */
 static const char *CFG_FILE ="mentohust.conf";	/* 配置文件 */
 static char *LOG_FILE = "mentohust.log";	/* 日志文件 */
 
@@ -392,8 +392,8 @@ static void showHelp(const char *fileName)
 #endif
 		"\t-v 客户端版本号[默认0.00表示兼容xrgsu]\n"
 		"\t-f 自定义数据文件[默认不使用]\n"
-		"\t-c DHCP脚本[默认dhclient]\n"
-		"例如:\t%s -uusername -ppassword -neth0 -i192.168.0.1 -m255.255.255.0 -g0.0.0.0 -s0.0.0.0 -o0.0.0.0 -t8 -e30 -r15 -a0 -d1 -b0 -v4.10 -fdefault.mpf -cdhclient\n"
+		"\t-c DHCP脚本[默认udhcpc -qi]\n"
+		"例如:\t%s -uusername -ppassword -neth0 -i192.168.0.1 -m255.255.255.0 -g0.0.0.0 -s0.0.0.0 -o0.0.0.0 -t8 -e30 -r15 -a0 -d1 -b0 -v4.10 -fdefault.mpf -cudhcpc -qi\n"
 		"注意：使用时请确保是以root权限运行！\n\n";
 	printf(helpString, fileName, fileName);
 	exit(EXIT_SUCCESS);
