@@ -32,7 +32,8 @@ AS_IF([test "x$enable_arp" = "xno"],
 # Checks for libraries.
 AS_CASE([$host_os],
         [*darwin*],
-        [AC_DEFINE(MAC_OS, [], [Define MAC_OS when compiling for Mac OS])])
+        [AC_DEFINE(MAC_OS, [], [Define MAC_OS when compiling for Mac OS])
+         AC_CHECK_LIB([iconv], [iconv])])
 
 AC_ARG_WITH([pcap], [AC_HELP_STRING([ --with-pcap=TYPE], [How to link libpcap: dyload(Default) | dylib | stlib | PATH])],
             [], [with_pcap="dyload"])
@@ -59,7 +60,7 @@ AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION(0.16.1)
 
 # Checks for header files.
-AC_CHECK_HEADERS([arpa/inet.h fcntl.h netinet/in.h stdint.h stdlib.h string.h sys/ioctl.h sys/socket.h sys/time.h unistd.h libintl.h locale.h])
+AC_CHECK_HEADERS([iconv.h arpa/inet.h fcntl.h netinet/in.h stdint.h stdlib.h string.h sys/ioctl.h sys/socket.h sys/time.h unistd.h libintl.h locale.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 AC_TYPE_SIZE_T
